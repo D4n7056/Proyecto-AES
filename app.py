@@ -4,12 +4,12 @@
 
 import tkinter as tk
 from tkinter import filedialog, messagebox
-from aes.cbc import cbcEncrypt, cbcDecrypt
+from aes.ecb import ecbEncrypt, ecbDecrypt
 
 class App:
     def __init__(self, root):
         self.root = root
-        root.title("AES-128 CBC")
+        root.title("AES-128 ECB")
         root.geometry("500x300")
         self.file = ""
 
@@ -55,7 +55,7 @@ class App:
         if not key or not self.file: return
         try:
             data = open(self.file, 'rb').read()
-            out  = cbcEncrypt(data, key)
+            out  = ecbEncrypt(data, key)
             open(self.file + '.enc', 'wb').write(out)
             messagebox.showinfo("OK", "Cifrado completo")
         except Exception as e:
@@ -69,7 +69,7 @@ class App:
         if not key or not self.file: return
         try:
             data = open(self.file, 'rb').read()
-            out  = cbcDecrypt(data, key)
+            out  = ecbDecrypt(data, key)
             name = self.file[:-4] if self.file.endswith('.enc') else "dec_" + self.file
             open(name, 'wb').write(out)
             messagebox.showinfo("OK", "Descifrado completo")
