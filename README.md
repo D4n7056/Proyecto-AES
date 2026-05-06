@@ -3,7 +3,7 @@ Autores:
 - Abigail Godoy Araujo A01709167
 - Daniela Iliana Rivera García A07107056
 - Frida Azenette Hernandez Illescas A01713540
-- Monserrat Carrera Leal A01713040
+- Montserrat Carrera Leal A01713040
 
 ## Sobre el algoritmo
 El algoritmo AES es un algoritmo de encriptación
