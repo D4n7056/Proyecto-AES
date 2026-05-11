@@ -10,16 +10,22 @@ class App:
     def __init__(self, root):
         self.root = root
         root.title("AES-128 ECB")
-        root.geometry("500x300")
+        root.geometry("500x350")
         self.file = ""
 
         tk.Button(root, text="Seleccionar archivo", command=self.sel).pack(pady=10)
         self.label = tk.Label(root, text="Ninguno")
         self.label.pack()
 
-        tk.Label(root, text="Llave (16 chars ASCII)").pack()
-        self.key = tk.Entry(root, width=30)
-        self.key.pack()
+        # ASCII key input
+        tk.Label(root, text="Llave ASCII (16 chars)").pack()
+        self.key_ascii = tk.Entry(root, width=30)
+        self.key_ascii.pack()
+
+        # HEX key input
+        tk.Label(root, text="Llave HEX (ej: FF 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F)").pack()
+        self.key_hex = tk.Entry(root, width=50)
+        self.key_hex.pack()
 
         tk.Button(root, text="Cifrar",    bg="green", command=self.enc).pack(pady=10)
         tk.Button(root, text="Descifrar", bg="blue",  command=self.dec).pack()
@@ -37,12 +43,35 @@ class App:
     # getkey                 #
     #------------------------#
     def getkey(self):
-        k = self.key.get()
-        if len(k) != 16:
-            messagebox.showerror("Error", "Llave debe ser 16 chars")
+        ascii_val = self.key_ascii.get().strip()
+        hex_val = self.key_hex.get().strip()
+
+        # Sólo se puede usar una caja
+        if ascii_val and hex_val:
+            messagebox.showerror("Error", "Usa solo ASCII o HEX")
+            return None
+        if not ascii_val and not hex_val:
+            messagebox.showerror("Error", "Ingresa una llave")
+            return None
+
+        # Modo HEX 
+        if hex_val:
+            try:
+                hex_str = hex_val.replace(" ", "")
+                if len(hex_str) != 32:
+                    messagebox.showerror("Error", "Llave HEX debe ser 16 bytes (32 caracteres hex)")
+                    return None
+                return bytes.fromhex(hex_str)
+            except ValueError:
+                messagebox.showerror("Error", "Formato HEX inválido")
+                return None
+
+        # Modo ASCII
+        if len(ascii_val) != 16:
+            messagebox.showerror("Error", "Llave ASCII debe ser 16 chars")
             return None
         try:
-            return k.encode('ascii')
+            return ascii_val.encode('ascii')
         except:
             messagebox.showerror("Error", "ASCII solamente")
             return None
