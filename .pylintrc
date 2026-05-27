@@ -1,0 +1,23 @@
+[MAIN]
+# Minimum Python version
+py-version=3.10
+
+[MESSAGES CONTROL]
+# Disable the following checks:
+# C0114: Missing module docstring
+# C0115: Missing class docstring
+# C0116: Missing function or method docstring
+# C0103: Invalid name (not snake_case)
+# C0301: Line too long
+# C0303: Trailing whitespace
+# C0304: Missing final newline
+# C0305: Trailing newlines
+# C0321: Multiple statements on one line
+# R0911: Too many return statements
+# R1732: Consider using 'with' for resource-allocating operations
+# W0702: No exception type(s) specified (bare-except)
+# W0718: Catching too general exception
+disable=C0114,C0115,C0116,C0103,C0301,C0303,C0304,C0305,C0321,R0911,R1732,W0702,W0718
+
+[FORMAT]
+max-line-length=120
