@@ -1,0 +1,2 @@
+(base) mon@Air-de-Montse-3 aes-p % python main.py
+(base) mon@Air-de-Montse-3 aes-p % python -c "data = open('/Users/mon/Downloads/aes-p/caso2.txt.enc', 'rb').read(); print(' '.join(f'{b:02X}' for b in data[:16]))"
