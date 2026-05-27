@@ -1,1 +1,1 @@
-from app import App
+# Principal punto de entrada - run main.py

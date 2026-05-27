@@ -10,7 +10,6 @@ from aes.operations import (subBytes, invSubBytes,
                             mixColumns, invMixColumns,
                             addRoundKey,
                             bytesToState, stateToBytes)
-from aes.keyExpansionF import keyExpansion
 
 #------------------------#
 # encrypt_block          #
