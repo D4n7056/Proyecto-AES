@@ -153,9 +153,11 @@ Dependiendo de la clave:
 
 # 6. Propiedades importantes de AES
 
-* ✔ Seguro contra criptoanálisis lineal y diferencial
-* ✔ Alta eficiencia en software y hardware
-* ✔ Uso extensivo en aplicaciones reales
+✔ Seguro contra criptoanálisis lineal y diferencial
+
+✔ Alta eficiencia en software y hardware
+
+✔ Uso extensivo en aplicaciones reales
 
 ***
 
