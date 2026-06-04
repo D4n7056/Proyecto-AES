@@ -6,6 +6,8 @@ Autores:
 - Montserrat Carrera Leal A01713040
 
 # Sobre el algoritmo
+<img width="462" height="538" alt="Screenshot 2026-06-04 at 12 37 55 p m" src="https://github.com/user-attachments/assets/01353383-c383-4f4d-9372-6fb3cb18ca0d" />
+
 
 ## Implementación del Algoritmo AES en Python
 
